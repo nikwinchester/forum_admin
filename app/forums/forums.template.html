@@ -1,0 +1,180 @@
+<div class="container animated fadeIn" >
+    <div class="right-product my-index right-full" >
+        <div class="container-fluid">
+            <div class="info-center">
+
+
+            <div style="margin-top: 10px;"  >
+
+                <div class="input-group" style="float: right;margin-right: 70px;">
+
+            <input type="text"  ng-change="searchtopic(search)" ng-model="search" class="form-control" placeholder="请输入帖子标题或内容" >
+
+        </div>
+
+                <div style="margin: 25px 0px">企业内部员工论坛后台管理>帖子管理</div>
+
+         </div>
+
+    <div >
+    <table class="table table-bordered table-hover" style="min-width: 850px;">
+        <thead >
+        <tr class="sortable">
+            <th class="wrapexam" style="width: 2%;" >次序</th>
+            <th   class="wrapexam"  style="width: 6%;">标题</th>
+            <th  class="wrapexam" style="width: 6%;" >作者</th>
+            <th   class="wrapexam"  style="width: 6%;" >帖子内容</th>
+            <th   class="wrapexam" style="width: 6%;" >分类</th>
+            <th    class="wrapexam" style="width: 6%;">评论数</th>
+            <th  style="width: 3%;"  > <button type="button" ng-click="addTopic()" class="btn btn-sm btn-success">
+                <i class="glyphicon glyphicon-plus">
+                </i> 添加新帖子
+            </button></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr   id="t"   ng-repeat="topic in topics"  ng-class="{'fontcolor':topic.deleted_at!==null,'fontcolor2':topic.deleted_at===null}">
+            <td class="wrapexam">{{$index+1}}</td>
+            <td class="wrapexam" ><p editable-text="topic.title" e-name="title" e-form="rowform" e-required>{{topic.title}}</p></td>
+            <td class="wrapexam"> <p>{{topic.username}}</p></td>
+
+            <td  class="wrapexam"> <p class="wrapexam"  e-name="content" e-form="rowform" e-required>{{topic.content}}</p></a></td>
+
+            <td  class="wrapexam" class="select-td"><span editable-select="topic.category" e-name="category"  e-form="rowform"  e-selectpicker e-ng-options="s.value as s.text for s in statuses" >{{topic.category}}</span></td>
+
+            <td class="wrapexam"><a ng-class="{'fontcolor':topic.deleted_at!==null,'fontcolor2':topic.deleted_at===null}"  ng-click="openCommentEditor(topic)" >{{topic.comment_count}}</a></td>
+            <td>
+
+                <form editable-form name="rowform" onbeforesave="saveTopics($data,topic)" ng-show="rowform.$visible" class="form-buttons form-inline"
+                      shown="inserted == topic">
+                    <button type="submit" ng-disabled="rowform.$waiting"  class="btn btn-primary editable-table-button btn-xs">
+                        保存
+                    </button>
+                    <button type="button" ng-disabled="rowform.$waiting" ng-click="openTopicEditor(topic)"
+                            class="btn btn-success editable-table-button btn-xs">
+                        帖子内容
+                    </button>
+                    <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"
+                            class="btn btn-default editable-table-button btn-xs">
+                        取消
+                    </button>
+
+
+                </form>
+
+
+                <div class="buttons" ng-show="!rowform.$visible">
+                    <button type="button" ng-click="rowform.$show()" class="btn btn-primary editable-table-button btn-xs" ng-hide="topic.deleted_at!=null">
+                        编辑
+                    </button>
+                    <button type="button" ng-click="removeTopics($index)" class="btn btn-danger editable-table-button btn-xs" ng-hide="topic.deleted_at!=null">
+                        删除
+                    </button>
+                </div>
+            </td>
+        </tr>
+
+        </tbody>
+
+    </table>
+
+        <nav  class="text-center" ng-hide="search!=null" ng-show="search==''">
+            <ul class="pagination">
+                <li>
+                    <span aria-hidden="true" style="cursor: pointer" ng-click="firstPage()">首页</span>
+                </li>
+                <li>
+                    <span aria-hidden="true" style="cursor: pointer" ng-click="backTo()">上一页</span>
+                </li>
+                <li>
+                    <span aria-hidden="true" style="cursor: pointer" ng-click="loadMore()">下一页</span>
+                </li>
+            </ul>
+        </nav>
+
+    <style>
+
+         .nextLink,.prevLink{
+                  font-size: 12px;
+                     line-height: 24px;
+                   height: 24px;
+                   border: solid 1px #aaa;
+                   color: #999;
+                  padding: 0 9px;
+                  margin: 0 0 0 5px;
+                  list-style: none;
+                   background: #f2f2f2;
+                  float: left;
+                  cursor: pointer;
+         }
+
+        a.prevLink:hover,a.nextLink:hover {
+                   background: #aaa !important;
+                   color: #fff !important;
+                   cursor: pointer;
+               }
+
+         .step {
+             display: block;
+             line-height: 24px;
+             height: 24px;
+             border: solid 1px #aaa;
+             color: #999;
+             background: #fff;
+             padding: 0 9px;
+             font-size: 12px;
+             float: left;
+             margin: 0 0 0 5px;
+             list-style: none;
+             cursor: pointer;
+         }
+         .currentStep{
+             border-color: #fff;
+             padding: 0 4px;
+             color: #f90;
+             font-weight: bold;
+             float: left;
+             display: block;
+             line-height: 24px;
+             height: 24px;
+             padding: 0 9px;
+             font-size: 12px;
+             float: left;
+             margin: 0 0 0 5px;
+             list-style: none;
+             cursor: pointer;
+         }
+
+
+
+        .pagination a{
+            cursor: pointer;
+        }
+         .fontcolor{
+             color:#bdc2ff;
+         }
+         .fontcolor2{
+             color:black;
+             /*???*/
+         }
+
+
+        .wrapexam{
+            width: 100px;
+            height:25px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            text-align:center;
+            vertical-align:middle;
+        }
+    </style>
+
+
+</div>
+</div>
+        </div>
+    </div>
+
+</div>

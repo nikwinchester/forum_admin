@@ -1,0 +1,84 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title" ng-show="status.edit===false">发表主题</h3>
+        <h3 class="modal-title" ng-show="status.edit===true">修改</h3>
+    </div>
+
+
+    <div class="modal-body">
+
+        <div class="Card" id="topic-new-container" style="padding:10px">
+            <div class=" col-md-9">
+
+                <input type="text" class="form-control" ng-model="topic.title" placeholder="标题">
+            </div>
+            <div class="col-md-3">
+
+                <select class="form-control" ng-model="topic.category">
+                    <option>分类1</option>
+                    <option>分类2</option>
+                </select>
+            </div>
+
+            <div class="clearfix" style="margin-bottom:10px"></div>
+
+            <div>
+                <div id="topicEditor-toolbar">
+
+<span class="ql-formats">
+<select class="ql-font">
+<option selected=""></option>
+<option value="serif"></option>
+<option value="monospace"></option>
+</select>
+<select class="ql-size">
+<option value="small"></option>
+<option selected=""></option>
+<option value="large"></option>
+<option value="huge"></option>
+</select>
+</span>
+                    <span class="ql-formats">
+<button class="ql-bold"></button>
+<button class="ql-italic"></button>
+<button class="ql-underline"></button>
+<button class="ql-strike"></button>
+</span>
+                    <span class="ql-formats">
+<select class="ql-color"></select>
+<select class="ql-background"></select>
+</span>
+                    <span class="ql-formats">
+<button class="ql-list" value="ordered"></button>
+<button class="ql-list" value="bullet"></button>
+<select class="ql-align">
+<option selected=""></option>
+<option value="center"></option>
+<option value="right"></option>
+<option value="justify"></option>
+</select>
+</span>
+                    <span class="ql-formats">
+<button class="ql-link"></button>
+<button class="ql-image"></button>
+</span>
+
+                </div>
+                <div id="topicEditor-editor" style="height: 200px;"></div>
+
+                <div style="text-align:center;margin-top: 10px">
+                    <input ng-show="status.edit===false" class="btn btn-primary" type="button" ng-click="submitTopic()" value="发表新帖">
+                    <div style="display:inline" ng-show="status.edit===true">
+                        <input  class="btn btn-primary" type="button" ng-click="submitTopic()" value="提交">
+                        <input  class="btn btn-danger" type="button" ng-click="deleteTopic()" value="删除">
+                    </div>
+                    <input  class="btn btn-default" type="button" ng-click="cancel()" value="取消">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div ng-init="initQuill()"></div>

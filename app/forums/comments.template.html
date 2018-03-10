@@ -1,0 +1,100 @@
+
+    <div style="margin-top: 20px;margin-bottom: 20px; margin-left: 10px;" >
+
+           <div style="float: left; font-size: 24px;" >评论管理</div>
+
+        <div style=" padding-left: 120px;"><input type="text"  style="width:300px; "  ng-change="searchcomment(search)" ng-model="search" class="form-control" placeholder="请输入评论内容或作者" >
+        </div>
+
+    </div>
+
+    <div class="table" style="margin-top: -30px; margin-left: -26px;">
+        <table  style="width: 400px;"  class="table table-hover">
+            <thead >
+            <tr class="sortable">
+                <th  class="wrapexam2" style="width: 7%" >次序</th>
+                <th  class="wrapexam2"  style="width: 7%" >作者</th>
+                <th   class="wrapexam2" style="width: 7%"  >评论内容</th>
+                <th   class="wrapexam2" style="width: 7%" >评论时间</th>
+                <th > <button type="button" ng-click="addComment()" class="btn btn-sm btn-success" ng-hide="topic.deleted_at!=null">
+                    <i class="glyphicon glyphicon-plus">
+                    </i> 添加新评论
+                </button></th>
+
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr ng-repeat="comment in comments "  ng-class="{'fontcolor':comment.deleted_at!==null,'fontcolor2':comment.deleted_at===null}">
+                <td>{{$index + 1}}</td>
+                <td class="wrapexam2" ><p >{{comment.username}}</p></td>
+                <td  ><p class="wrapexam2" editable-text="comment.comment" e-name="comment" e-form="rowform" e-required>{{comment.comment}}</p></td>
+                <td class="wrapexam2" ><p >{{comment.created_at}}</p></td>
+                <td>
+
+                    <form  editable-form  name="rowform" onbeforesave="saveComment($data,comment)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted==comment">
+                        <button type="submit" ng-disabled="rowform.$waiting"  class="btn btn-primary editable-table-button btn-xs">
+                            保存
+                        </button>
+                        <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default editable-table-button btn-xs">
+                            取消
+                        </button>
+                    </form>
+
+
+                    <div class="buttons" ng-show="!rowform.$visible">
+                        <button type="button" ng-click="rowform.$show()" class="btn btn-primary editable-table-button btn-xs"  ng-hide="comment.deleted_at!=null||topic.deleted_at!=null">
+                            编辑
+                        </button>
+                        <button type="button" ng-click="deleteComment($index)" class="btn btn-danger editable-table-button btn-xs"  ng-hide="comment.deleted_at!=null||topic.deleted_at!=null">
+                            删除
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+
+<!--
+        <nav  style="margin-top: -30px;"  class="text-center" ng-hide="search!=null" ng-show="search==''">
+            <ul class="pagination">
+                <li>
+                    <span aria-hidden="true" style="cursor: pointer" ng-click="beforePage()">上一页</span>
+                </li>
+                <li>
+                    <span aria-hidden="true" style="cursor: pointer" ng-click="afterPage()">下一页</span>
+                </li>
+            </ul>
+        </nav>
+-->
+
+
+
+
+        <style>
+
+            .fontcolor{
+                color:#bdc2ff;
+            }
+            .fontcolor2{
+                color:black;
+                /*???*/
+            }
+
+            .table{
+                margin: 30px;
+            }
+            .wrapexam2{
+                width: 160px;
+                height:20px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                text-align:center;
+                vertical-align:middle;
+            }
+        </style>
+    </div>
+
+

@@ -1,0 +1,118 @@
+<div class="container animated fadeIn">
+    <div class="right-product my-index right-full" >
+        <div class="container-fluid">
+            <div class="info-center">
+    <div style="margin-top: 10px;">
+
+        <div class="input-group " style="float: right;margin-right: 70px;">
+            <input type="text"  ng-change="searchuser(search)" ng-model="search" class="form-control" placeholder="请输入用户姓名" >
+
+        </div>
+        <div style="margin: 25px 0px">企业内部员工论坛后台管理>用户管理</div>
+
+
+    </div>
+
+    <div >
+        <table  class="table table-bordered table-hover" style="min-width: 850px;">
+            <thead >
+            <tr class="sortable">
+                <th  class="wrapexam" style="width: 50px;" >次序</th>
+                <th   class="wrapexam">头像</th>
+                <th   class="wrapexam">用户名</th>
+                <th  class="wrapexam" >密码</th>
+                <th   class="wrapexam"  style="width:200px;">性别</th>
+                <th   class="wrapexam">真实姓名</th>
+                <th    class="wrapexam" >个性签名</th>
+                <th>
+                    <button type="button" ng-click="addUser()" class="btn btn-sm btn-success">
+                        <i class="glyphicon glyphicon-plus">
+                        </i> 添加新用户
+                    </button></th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr  ng-repeat="user in users" ng-class="{'fontcolor':user.deleted_at!=null}">
+                <td>{{$index+1}}</td>
+                <td class="wrapexam" >
+                    <p e-form="rowform" e-required> <img id="img{{$index}}" ng-src="{{user.user_img}}" height="30px" width="30px"></p>
+                    <div ng-show="rowform.$visible" >
+                    <input ng-hide="user.deleted_at!=null" style="width: 62px;margin:0 auto;" type="file" class="upt" id="inp{{$index}}" accept=".jpg,.jpeg,.png,.bmp" onchange="angular.element(this).scope().postImg(angular.element(this).scope().$index)">
+                    </div>
+                </td>
+                <td class="wrapexam" ><p editable-text="user.username" e-name="username" e-form="rowform" e-required>{{user.username}}</p></td>
+
+                <td class="wrapexam"> <p editable-text="user.password" e-name="password" e-form="rowform" e-required>{{user.password}}</p></td>
+
+                <td  class="wrapexam" class="select-td"><p editable-select="user.gender" e-name="gender"  e-form="rowform"  e-selectpicker  e-ng-options="s.value as s.text for s in statuses" >{{user.gender}}</p></td>
+
+                <td class="wrapexam"><p editable-text="user.realname" e-name="realname" e-form="rowform" e-required>{{user.realname}}</p></td>
+
+                <td class="wrapexam"><p editable-text="user.sign" e-name="sign" e-form="rowform" e-required>{{user.sign}}</p></td>
+
+                <td>
+
+                    <form editable-form name="rowform" onbeforesave="saveusers($data,user)" ng-show="rowform.$visible" class="form-buttons form-inline"
+                          shown="inserted == user">
+                        <button type="submit" ng-disabled="rowform.$waiting"  class="btn btn-primary editable-table-button btn-xs">
+                            保存
+                        </button>
+                        <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel() " class="btn btn-default editable-table-button btn-xs">
+                            取消
+                        </button>
+                    </form>
+
+
+                    <div class="buttons" ng-show="!rowform.$visible">
+                        <button type="button" ng-click="rowform.$show()" class="btn btn-primary editable-table-button btn-xs" ng-hide="user.deleted_at!=null">
+                            编辑
+                        </button>
+                        <button type="button" ng-click="removeUsers($index)" class="btn btn-danger editable-table-button btn-xs" ng-hide="user.deleted_at!=null">
+                            删除
+                        </button>
+                    </div>
+                </td>
+            </tr>
+
+            </tbody>
+
+        </table>
+        <div class="M-box3"  style="margin-left: 25%">
+        </div>
+        <nav class="text-center" ng-hide="search!=null" ng-show="search==''">
+            <ul class="pagination">
+                <li>
+                    <span aria-hidden="true" style="cursor: pointer" ng-click="first()">首页</span>
+                </li>
+                <li>
+                    <span aria-hidden="true" style="cursor: pointer" ng-click="backTo()">前一页</span>
+                </li>
+                <li >
+                    <span aria-hidden="true" style="cursor: pointer" ng-click="loadMore()">后一页</span>
+                </li>
+            </ul>
+        </nav>
+        <style>
+
+
+            .wrapexam{
+
+                height:20px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                text-align:center;
+                vertical-align:middle;
+            }
+
+            .fontcolor{
+                color: #bdc2ff;
+            }
+
+        </style>
+    </div>
+</div>
+        </div>
+    </div>
+</div>

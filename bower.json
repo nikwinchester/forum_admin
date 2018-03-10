@@ -1,0 +1,32 @@
+{
+  "name": "forum-admin",
+  "description": "forum-admin",
+  "version": "0.0.0",
+  "homepage": "https://whatever.com/",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.5.8",
+    "angular-animate": "1.5.8",
+    "angular-resource": "1.5.8",
+    "angular-touch": "1.5.8",
+    "bootstrap": "3.3.7",
+    "angular-bootstrap": "2.5.0",
+    "satellizer": "0.15.5",
+    "angular-ui-router": "1.0.5",
+    "angular-toastr": "2.1.1",
+    "jquery": "2.2.4",
+    "animate.css": "3.5.2",
+    "angular-local-storage": "0.7.1",
+    "angular-progress-button-styles": "0.1.0",
+    "angular-loading-bar": "0.9.0",
+    "angular-carousel": "^1.0.1",
+    "angular-qrcode": "monospaced/angular-qrcode#^6.2.1",
+    "bootstrap-select": "^1.11.0",
+    "angular-bootstrap-colorpicker": "^3.0.31",
+    "angular-sanitize": "1.5.8",
+    "ng-file-upload": "^12.2.13",
+    "angular-xeditable": "^0.8.0",
+    "angular-smart-table": "^2.1.8"
+  }
+}

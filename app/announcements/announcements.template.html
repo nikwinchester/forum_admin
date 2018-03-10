@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="right-product my-index right-full" >
+        <div class="container-fluid">
+            <div class="info-center">
+    <div style="margin: 25px 0px ;">企业内部员工论坛后台管理>公告管理</div>
+
+    <div style="width:100%">
+        <div class="add-row-editable-table">
+
+        </div>
+        <table class="table table-bordered table-hover table-condensed" style="min-width: 850px;">
+            <tr>
+                <th>公告标题</th>
+                <th>公告内容</th>
+
+                <th><button class="btn btn-success" ng-click="addAnnouncement()">
+                    <i class="glyphicon glyphicon-plus">
+                    </i> 添加公告</button></th>
+            </tr>
+            <tr ng-repeat="announcement in announcements" class="editable-row" ng-class="{'isDeleted':announcement.deleted_at!==null,'unDeleted':announcement.deleted_at===null}">
+                <td>
+                                <span editable-text="announcement.title" e-name="title" e-form="rowform" e-required>
+          {{ announcement.title }}
+        </span>
+                </td>
+                <td>
+                                <span editable-text="announcement.content" e-name="content" e-form="rowform" e-required>
+          {{ announcement.content }}
+        </span>
+                </td>
+
+
+
+                <td>
+                    <form editable-form name="rowform" onbeforesave="saveAnnouncement($data, announcement)"
+                          ng-show="rowform.$visible" class="form-buttons form-inline"
+                          shown="inserted == announcement">
+                        <button type="submit" ng-disabled="rowform.$waiting"
+                                class="btn btn-primary editable-table-button btn-xs">
+                            保存
+                        </button>
+                        <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"
+                                class="btn btn-default editable-table-button btn-xs">
+                            取消
+                        </button>
+                    </form>
+                    <div class="buttons" ng-show="!rowform.$visible">
+                        <button class="btn btn-primary editable-table-button btn-xs"
+                                ng-click="rowform.$show()" ng-hide="announcement.deleted_at!=null">编辑
+                        </button>
+                        <button class="btn btn-danger editable-table-button btn-xs"
+                                ng-click="removeAnnouncement($index)" ng-hide="announcement.deleted_at!=null">删除
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .isDeleted{
+        color: #bdc2ff;
+    }
+    .unDeleted{
+        color: black;
+    }
+</style>

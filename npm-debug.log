@@ -1,0 +1,52 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'G:\\Node.js\\node.exe',
+1 verbose cli   'G:\\Node.js\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'start' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.1
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle cambricon-forum-admin@0.0.0~prestart: cambricon-forum-admin@0.0.0
+6 verbose lifecycle cambricon-forum-admin@0.0.0~prestart: unsafe-perm in lifecycle true
+7 verbose lifecycle cambricon-forum-admin@0.0.0~prestart: PATH: G:\Node.js\node_modules\npm\bin\node-gyp-bin;G:\WebstormApp\cambricon-forum-admin\node_modules\.bin;D:\app\CAS\product\11.2.0\dbhome_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\OpenCL SDK\3.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\3.0\bin\x64;F:\java\bin;G:\Git\cmd;G:\Node.js\;F:\java\bin;C:\Users\云华\AppData\Roaming\npm
+8 verbose lifecycle cambricon-forum-admin@0.0.0~prestart: CWD: G:\WebstormApp\cambricon-forum-admin
+9 silly lifecycle cambricon-forum-admin@0.0.0~prestart: Args: [ '/d /s /c', 'npm install' ]
+10 silly lifecycle cambricon-forum-admin@0.0.0~prestart: Returned: code: 0  signal: null
+11 info lifecycle cambricon-forum-admin@0.0.0~start: cambricon-forum-admin@0.0.0
+12 verbose lifecycle cambricon-forum-admin@0.0.0~start: unsafe-perm in lifecycle true
+13 verbose lifecycle cambricon-forum-admin@0.0.0~start: PATH: G:\Node.js\node_modules\npm\bin\node-gyp-bin;G:\WebstormApp\cambricon-forum-admin\node_modules\.bin;D:\app\CAS\product\11.2.0\dbhome_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\OpenCL SDK\3.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\3.0\bin\x64;F:\java\bin;G:\Git\cmd;G:\Node.js\;F:\java\bin;C:\Users\云华\AppData\Roaming\npm
+14 verbose lifecycle cambricon-forum-admin@0.0.0~start: CWD: G:\WebstormApp\cambricon-forum-admin
+15 silly lifecycle cambricon-forum-admin@0.0.0~start: Args: [ '/d /s /c',
+15 silly lifecycle   'browser-sync start --server app --files app --port 9002' ]
+16 silly lifecycle cambricon-forum-admin@0.0.0~start: Returned: code: 3221225786  signal: null
+17 info lifecycle cambricon-forum-admin@0.0.0~start: Failed to exec start script
+18 verbose stack Error: cambricon-forum-admin@0.0.0 start: `browser-sync start --server app --files app --port 9002`
+18 verbose stack Exit status 3221225786
+18 verbose stack     at EventEmitter.<anonymous> (G:\Node.js\node_modules\npm\lib\utils\lifecycle.js:255:16)
+18 verbose stack     at emitTwo (events.js:106:13)
+18 verbose stack     at EventEmitter.emit (events.js:191:7)
+18 verbose stack     at ChildProcess.<anonymous> (G:\Node.js\node_modules\npm\lib\utils\spawn.js:40:14)
+18 verbose stack     at emitTwo (events.js:106:13)
+18 verbose stack     at ChildProcess.emit (events.js:191:7)
+18 verbose stack     at maybeClose (internal/child_process.js:891:16)
+18 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+19 verbose pkgid cambricon-forum-admin@0.0.0
+20 verbose cwd G:\WebstormApp\cambricon-forum-admin
+21 error Windows_NT 6.2.9200
+22 error argv "G:\\Node.js\\node.exe" "G:\\Node.js\\node_modules\\npm\\bin\\npm-cli.js" "start"
+23 error node v6.11.1
+24 error npm  v3.10.10
+25 error code ELIFECYCLE
+26 error cambricon-forum-admin@0.0.0 start: `browser-sync start --server app --files app --port 9002`
+26 error Exit status 3221225786
+27 error Failed at the cambricon-forum-admin@0.0.0 start script 'browser-sync start --server app --files app --port 9002'.
+27 error Make sure you have the latest version of node.js and npm installed.
+27 error If you do, this is most likely a problem with the cambricon-forum-admin package,
+27 error not with npm itself.
+27 error Tell the author that this fails on your system:
+27 error     browser-sync start --server app --files app --port 9002
+27 error You can get information on how to open an issue for this project with:
+27 error     npm bugs cambricon-forum-admin
+27 error Or if that isn't available, you can get their info via:
+27 error     npm owner ls cambricon-forum-admin
+27 error There is likely additional logging output above.
+28 verbose exit [ 1, true ]

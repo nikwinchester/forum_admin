@@ -1,0 +1,136 @@
+
+#wrap {
+    background: url('../images/login_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    width: 100%;
+    height: 90%;
+    z-index: -1;
+}
+
+#logo {
+    margin-top: 8%;
+    text-align: center;
+}
+
+#title {
+    color: #0084ff;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#form {
+    width: 450px;
+    padding-bottom: 3%;
+    background-color: #ffffff;
+    margin: 0 auto;
+    margin-top: 8%;
+    box-shadow: 0 1px 3px rgba(0, 37, 55, 0.05);
+}
+
+.form {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    padding-top: 6%;
+}
+
+#ifhaslogin {
+    width: 450px;
+    margin: 0 auto;
+    background-color: #f6f6f6;
+    text-align: center;
+    box-shadow: 0 5px 5px rgba(0, 37, 55, 0.05);
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 16px;
+}
+
+#ifnoregister {
+    width: 500px;
+    margin: 0 auto;
+    background-color: #f6f6f6;
+    text-align: center;
+    box-shadow: 0 5px 5px rgba(0, 37, 55, 0.05);
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 16px;
+}
+
+.register-username {
+    padding-top: 5%;
+}
+
+.register-inputdiv {
+    margin-top: 5%;
+}
+
+.register-span {
+    background-color: #ffffff;
+}
+
+.register-input {
+    height: 44px;
+}
+
+.register-radio {
+    margin-left: 25%;
+    margin-top: 5%;
+}
+
+.register-inline {
+    padding-left: 30%;
+}
+
+.register-submit {
+    width: 100%;
+    background-color: #0084ff;
+}
+
+.register-submit:hover {
+    background-color: #0077e6;
+}
+
+.register-footer {
+    text-align: center;
+    margin-top: 13%;
+}
+
+#login-form {
+    width: 500px;
+    padding-bottom: 3%;
+    background-color: #ffffff;
+    margin: 0 auto;
+    margin-top: 8%;
+}
+
+.login {
+    width: 300px;
+    height: 250px;
+    margin: 0 auto;
+    padding-top: 3%;
+}
+
+.login-username {
+    padding-top: 10%;
+}
+
+.login-inputdiv {
+    margin-top: 10%;
+}
+
+.login-submit {
+    width: 100%;
+    margin-top: 10%;
+    background-color: #0084ff;
+}
+
+.login-submit:hover {
+    background-color: #0077e6;
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 13%;
+}

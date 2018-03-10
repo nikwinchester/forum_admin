@@ -1,0 +1,50 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title" ng-show="status.edit===false">分享文件</h3>
+        <h3 class="modal-title" ng-show="status.edit===true">修改文件描述</h3>
+    </div>
+
+
+    <div class="modal-body">
+
+        <div class="Card" id="topic-new-container" style="padding:10px">
+            <div class=" col-md-12 form-group">
+                <label>标题</label>
+                <input type="text" class="form-control" ng-model="file.title" placeholder="标题">
+            </div>
+
+            <div class=" col-md-12 form-group">
+                <label >描述</label>
+                <textarea  class="form-control" rows="3" ng-model="file.comment" placeholder="描述"></textarea>
+            </div>
+            <div class=" col-md-12 form-group">
+                <label >文件名:</label>
+                <input type="text" class="form-control" value="{{file.file.name || file.originalname}}" disabled>
+            </div>
+
+
+
+                <div style="text-align:center;margin-top: 5px;padding-top: 0;">
+                    <div style="display:inline" ng-show="status.edit===false">
+                        <div class="btn btn-success" ngf-select ng-model="file.file">选择文件</div>
+
+                        <input class="btn btn-primary" type="button" ng-click="submitFile()" value="上传">
+
+
+                    </div>
+
+                    <div style="display:inline" ng-show="status.edit===true">
+                        <input  class="btn btn-primary" type="button" ng-click="submitFile()" value="提交">
+                        <input  class="btn btn-danger" type="button" ng-click="deleteFile()" value="删除">
+                    </div>
+
+                    <input  class="btn btn-default" type="button" ng-click="cancel()" value="取消">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div ng-init="initQuill()"></div>

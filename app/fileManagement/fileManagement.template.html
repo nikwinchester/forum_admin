@@ -1,0 +1,121 @@
+<div class="container" >
+    <div class="right-product my-index right-full" >
+        <div class="container-fluid">
+            <div class="info-center">
+    <div style="margin-bottom: 25px; ">
+        <div class="input-group " style="float: right;margin-right: 70px;">
+            <input type="text" ng-change="searchFile(search)" ng-model="search"  placeholder="根据文件标题、内容、文件名搜索" class="form-control" style="width: 300px;">
+        </div>
+
+        <div style="margin-top: 25px">企业内部员工论坛后台管理>文件管理</div>
+
+    </div>
+    <div style="width:100%">
+        <div class="add-row-editable-table">
+
+        </div>
+        <table class="table table-bordered table-hover table-condensed" style="min-width: 850px;" >
+            <tr>
+                <th style="width: 40px">序号</th>
+                <th style="width: 100px">文件标题</th>
+                <th style="width: 90px">分享者</th>
+                <th style="width: 300px">文件名</th>
+                <th style="width: 200px">文件内容</th>
+                <th style="width: 185px">创建时间</th>
+                <th style="width: 80px">下载次数</th>
+
+                <th><button class="btn btn-success share-upload-button" ng-click="openFileEditor()">
+                    <i class="glyphicon glyphicon-plus">
+                    </i> 添加文件</button></th>
+            </tr>
+            <tr ng-repeat="fileshare in fileshares" class="editable-row"
+                ng-class="{'isDeleted':fileshare.deleted_at!==null,'unDeleted':fileshare.deleted_at===null}">
+                <td>{{$index+1}}</td>
+                <td>
+                                <span editable-text="fileshare.title" e-name="title" e-form="rowform" e-required>
+          {{ fileshare.title }}
+        </span>
+                </td>
+                <td>
+                                <span >
+          {{ fileshare.username }}
+        </span>
+                </td>
+                <td>
+                    <span >
+          <a style="padding-top: 2px" ng-show="fileshare.deleted_at==null" ng-href="{{serverurl}}/file/download?_id={{fileshare._id}}">{{ fileshare.originalname }}</a>
+        </span>
+                    <span ng-show="fileshare.deleted_at!=null">{{fileshare.originalname}}</span>
+                </td>
+                <td>
+                    <span editable-text="fileshare.comment" e-name="comment" e-form="rowform" e-required>
+          {{ fileshare.comment }}
+        </span>
+                </td>
+                <td>
+                    <span >
+          {{ fileshare.created_at }}
+        </span>
+                </td>
+                <td>
+                    <span >
+          {{ fileshare.download_times }}
+        </span>
+                </td>
+
+
+
+                <td>
+                    <form editable-form name="rowform" onbeforesave="saveFileshare($data, fileshare)"
+                          ng-show="rowform.$visible" class="form-buttons form-inline"
+                          shown="inserted == fileshare">
+                        <button type="submit" ng-disabled="rowform.$waiting"
+                                class="btn btn-primary editable-table-button btn-xs">
+                            保存
+                        </button>
+                        <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"
+                                class="btn btn-default editable-table-button btn-xs">
+                            取消
+                        </button>
+                    </form>
+                    <div class="buttons" ng-show="!rowform.$visible">
+                        <button class="btn btn-primary editable-table-button btn-xs"
+
+                                ng-click="rowform.$show()" ng-hide="fileshare.deleted_at!=null">编辑
+                        </button>
+                        <button class="btn btn-danger editable-table-button btn-xs"
+                                ng-click="removeAnnouncement($index)" ng-hide="fileshare.deleted_at!=null">删除
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <nav class="text-center" ng-hide="search!=null" ng-show="search==''">
+            <ul class="pagination">
+                <li>
+                    <span aria-hidden="true" style="cursor: pointer" ng-click="firstPage()">首页</span>
+                </li>
+                <li>
+                    <span aria-hidden="true" style="cursor: pointer" ng-click="backTo()">上一页</span>
+                </li>
+                <li>
+                    <span aria-hidden="true" style="cursor: pointer" ng-click="loadMore()">下一页</span>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .isDeleted{
+        color: #bdc2ff;
+    }
+    .unDeleted{
+        color: black;
+    }
+</style>

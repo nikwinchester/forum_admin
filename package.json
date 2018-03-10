@@ -1,0 +1,25 @@
+{
+  "name": "forum-admin",
+  "private": true,
+  "version": "0.0.0",
+  "description": "forum-admin",
+  "repository": "",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "1.7.9",
+    "del": "^2.2.1",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-if": "^2.0.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-useref": "^3.1.0",
+    "http-server": "0.9.0"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "only-http": "http-server ./app -a 0.0.0.0 -p 9002 -c-1",
+    "start": "browser-sync start --server app --files app --port 9002"
+  },
+  "dependencies": {}
+}
